@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-
+import 'drawing_board.dart';
 
 class Button1 extends StatelessWidget {
   const Button1({super.key});
@@ -9,17 +8,12 @@ class Button1 extends StatelessWidget {
   static const Color _appBarColor = Color(0xFF4A8C4A);
 
   ButtonStyle get _buttonStyle => ElevatedButton.styleFrom(
-        backgroundColor: _buttonColor,
-        foregroundColor: Colors.white,
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        textStyle: const TextStyle(
-          fontSize: 28,
-          fontWeight: FontWeight.bold,
-        ),
-      );
+    backgroundColor: _buttonColor,
+    foregroundColor: Colors.white,
+    elevation: 0,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    textStyle: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +24,10 @@ class Button1 extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           'Select Lesson',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.2,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.2),
         ),
       ),
 
-      
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: SizedBox(
@@ -51,7 +41,14 @@ class Button1 extends StatelessWidget {
             children: [
               ElevatedButton(
                 style: _buttonStyle,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DrawingBoard(),
+                    ),
+                  );
+                },
                 child: const Text('0'),
               ),
               ElevatedButton(
